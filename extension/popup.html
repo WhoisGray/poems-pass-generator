@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="popup.css" />
+  <title>Poems Pass</title>
+</head>
+<body>
+  <header>
+    <h1>🪶 Poems Pass</h1>
+    <p class="sub">گذرواژه از دل شعر فارسی</p>
+  </header>
+
+  <div class="output" id="output">
+    <code id="password">…</code>
+    <button id="copy" title="کپی">📋</button>
+  </div>
+  <div class="meter"><div id="bar"></div></div>
+  <p class="meta" id="meta"></p>
+
+  <div class="controls">
+    <label>حالت
+      <select id="mode">
+        <option value="poem">شعر</option>
+        <option value="proverb">ضرب‌المثل</option>
+        <option value="abstract">انتزاعی</option>
+      </select>
+    </label>
+    <label>تعداد واژه
+      <input type="number" id="words" min="2" max="6" value="3" />
+    </label>
+    <label>جداکننده
+      <select id="sep">
+        <option value="-">-</option>
+        <option value="_">_</option>
+        <option value=".">.</option>
+        <option value="">بدون</option>
+      </select>
+    </label>
+    <label id="poetWrap">شاعر
+      <select id="poet"><option value="">همه</option></select>
+    </label>
+  </div>
+
+  <div class="toggles">
+    <label><input type="checkbox" id="numbers" checked /> عدد</label>
+    <label><input type="checkbox" id="symbols" checked /> نماد !@#</label>
+    <label><input type="checkbox" id="capitalize" /> حرف بزرگ</label>
+    <label><input type="checkbox" id="leet" /> leet</label>
+  </div>
+
+  <button id="gen" class="primary">تولید گذرواژه</button>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+node_modules/
+extension/lib/
+poems-pass-extension.zip
+*.log
+.DS_Store

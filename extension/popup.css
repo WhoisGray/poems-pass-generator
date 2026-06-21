@@ -1,0 +1,88 @@
+:root {
+  --bg: #1a1625;
+  --card: #251f36;
+  --accent: #c792ea;
+  --accent2: #82aaff;
+  --text: #e6e1f0;
+  --muted: #9a90b0;
+  --good: #c3e88d;
+  --mid: #ffcb6b;
+  --bad: #ff6b6b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  width: 320px;
+  margin: 0;
+  padding: 16px;
+  font-family: "Vazirmatn", Tahoma, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+header { text-align: center; margin-bottom: 14px; }
+h1 { margin: 0; font-size: 20px; }
+.sub { margin: 2px 0 0; font-size: 12px; color: var(--muted); }
+
+.output {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card);
+  border: 1px solid #3a3050;
+  border-radius: 10px;
+  padding: 12px;
+}
+.output code {
+  flex: 1;
+  font-size: 16px;
+  word-break: break-all;
+  direction: ltr;
+  text-align: left;
+  color: var(--accent);
+  font-family: "SF Mono", Menlo, monospace;
+}
+#copy {
+  background: none; border: none; cursor: pointer;
+  font-size: 18px; padding: 4px;
+}
+
+.meter {
+  height: 6px; border-radius: 4px; background: #3a3050;
+  margin: 8px 0 4px; overflow: hidden;
+}
+#bar { height: 100%; width: 0; transition: width .3s, background .3s; }
+
+.meta { font-size: 11px; color: var(--muted); margin: 0 0 12px; min-height: 14px; }
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.controls label, .toggles label {
+  font-size: 12px; color: var(--muted);
+  display: flex; flex-direction: column; gap: 3px;
+}
+select, input[type="number"] {
+  background: var(--card); color: var(--text);
+  border: 1px solid #3a3050; border-radius: 6px;
+  padding: 6px; font-family: inherit; font-size: 13px;
+}
+
+.toggles {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  margin-bottom: 14px;
+}
+.toggles label { flex-direction: row; align-items: center; gap: 4px; color: var(--text); }
+
+.primary {
+  width: 100%; padding: 12px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  color: #1a1625; font-weight: 700; font-size: 15px;
+  border: none; border-radius: 10px; cursor: pointer;
+  font-family: inherit;
+}
+.primary:active { transform: scale(.98); }

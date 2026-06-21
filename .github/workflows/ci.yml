@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: تست روی Node ${{ matrix.node }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [18, 20, 22]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: نصب Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: اجرای تست‌ها (بدون وابستگی)
+        run: npm test
+
+      - name: بررسی اجرای CLI
+        run: node bin/poems-pass.js -n 3 -v
+
+  build-extension:
+    name: ساخت اکستنشن
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: ساخت و بسته‌بندی اکستنشن
+        run: npm run pack:ext
+
+      - name: آپلود artifact اکستنشن
+        uses: actions/upload-artifact@v4
+        with:
+          name: poems-pass-extension
+          path: poems-pass-extension.zip

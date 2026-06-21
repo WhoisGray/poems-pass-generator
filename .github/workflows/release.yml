@@ -1,0 +1,42 @@
+name: Release
+
+# با push یک تگ نسخه‌ای مثل v1.0.0 اجرا می‌شود:
+#   git tag v1.0.0 && git push origin v1.0.0
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: انتشار CLI + اکستنشن
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: اجرای تست‌ها
+        run: npm test
+
+      - name: بسته‌بندی اکستنشن (zip)
+        run: npm run pack:ext
+
+      - name: ساخت GitHub Release با فایل اکستنشن
+        uses: softprops/action-gh-release@v2
+        with:
+          files: poems-pass-extension.zip
+          generate_release_notes: true
+
+      # انتشار CLI روی npm — فقط اگر NPM_TOKEN در Secrets تنظیم شده باشد.
+      - name: انتشار روی npm
+        if: ${{ secrets.NPM_TOKEN != '' }}
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

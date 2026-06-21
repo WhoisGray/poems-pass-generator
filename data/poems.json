@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "description": "پایگاه داده اشعار و ضرب‌المثل‌های فارسی برای تولید گذرواژه",
+    "note": "fa = متن فارسی، fg = آوانگاری فینگلیش (پایه‌ی تولید گذرواژه)"
+  },
+  "poems": [
+    { "id": "hafez-1", "poet": "حافظ", "fa": "گفتا غم تو دارم", "fg": "gofta ghame to daram" },
+    { "id": "hafez-2", "poet": "حافظ", "fa": "اگر آن ترک شیرازی به دست آرد دل ما را", "fg": "agar an torke shirazi be dast arad dele ma ra" },
+    { "id": "hafez-3", "poet": "حافظ", "fa": "دل می‌رود ز دستم صاحب‌دلان خدا را", "fg": "del miravad ze dastam sahebdelan khoda ra" },
+    { "id": "hafez-4", "poet": "حافظ", "fa": "ساقیا برخیز و درده جام را", "fg": "saghiya barkhiz o dordeh jam ra" },
+    { "id": "saadi-1", "poet": "سعدی", "fa": "بنی‌آدم اعضای یک پیکرند", "fg": "bani adam azaye yek peykarand" },
+    { "id": "saadi-2", "poet": "سعدی", "fa": "تو کز محنت دیگران بی‌غمی", "fg": "to kaz mehnate digaran bighami" },
+    { "id": "saadi-3", "poet": "سعدی", "fa": "هزار جهد بکردم که سر عشق بپوشم", "fg": "hezar jahd bekardam ke serre eshgh beposham" },
+    { "id": "molana-1", "poet": "مولانا", "fa": "بشنو این نی چون شکایت می‌کند", "fg": "beshno in ney chon shekayat mikonad" },
+    { "id": "molana-2", "poet": "مولانا", "fa": "بنمای رخ که باغ و گلستانم آرزوست", "fg": "benmay rokh ke bagh o golestanam arezust" },
+    { "id": "molana-3", "poet": "مولانا", "fa": "هر کسی کو دور ماند از اصل خویش", "fg": "har kasi ku dur mand az asle khish" },
+    { "id": "khayyam-1", "poet": "خیام", "fa": "این کوزه چو من عاشق زاری بوده‌ست", "fg": "in kuze cho man asheghe zari budast" },
+    { "id": "khayyam-2", "poet": "خیام", "fa": "گر یک نفست ز زندگانی گذرد", "fg": "gar yek nafasat ze zendegani gozarad" },
+    { "id": "ferdosi-1", "poet": "فردوسی", "fa": "توانا بود هر که دانا بود", "fg": "tavana bovad har ke dana bovad" },
+    { "id": "ferdosi-2", "poet": "فردوسی", "fa": "ز دانش دل پیر برنا بود", "fg": "ze danesh dele pir borna bovad" },
+    { "id": "babataher-1", "poet": "بابا طاهر", "fa": "ز دست دیده و دل هر دو فریاد", "fg": "ze daste dide o del har do faryad" },
+    { "id": "sohrab-1", "poet": "سهراب سپهری", "fa": "به سراغ من اگر می‌آیید نرم و آهسته بیایید", "fg": "be soraghe man agar miayid narm o aheste biayid" },
+    { "id": "sohrab-2", "poet": "سهراب سپهری", "fa": "چشم‌ها را باید شست جور دیگر باید دید", "fg": "cheshmha ra bayad shost jure digar bayad did" },
+    { "id": "forough-1", "poet": "فروغ فرخزاد", "fa": "پرواز را به خاطر بسپار پرنده مردنی‌ست", "fg": "parvaz ra be khater bespar parande mordanist" },
+    { "id": "shamlou-1", "poet": "احمد شاملو", "fa": "که عشق چه بی‌دریغ است", "fg": "ke eshgh che bidarigh ast" }
+  ],
+  "proverbs": [
+    { "id": "p1", "fa": "آب که از سر گذشت چه یک وجب چه صد وجب", "fg": "ab ke az sar gozasht che yek vajab che sad vajab" },
+    { "id": "p2", "fa": "از این ستون به آن ستون فرج است", "fg": "az in sotun be an sotun faraj ast" },
+    { "id": "p3", "fa": "کار نیکو کردن از پر کردن است", "fg": "kare niku kardan az por kardan ast" },
+    { "id": "p4", "fa": "هر که بامش بیش برفش بیشتر", "fg": "har ke bamash bish barfash bishtar" },
+    { "id": "p5", "fa": "ماهی را هر وقت از آب بگیری تازه است", "fg": "mahi ra har vaght az ab begiri taze ast" },
+    { "id": "p6", "fa": "سحرخیز باش تا کامروا باشی", "fg": "saharkhiz bash ta kamrava bashi" },
+    { "id": "p7", "fa": "دیگ به دیگ می‌گوید رویت سیاه", "fg": "dig be dig miguyad ruyat siah" },
+    { "id": "p8", "fa": "گر صبر کنی ز غوره حلوا سازی", "fg": "gar sabr koni ze ghure halva sazi" },
+    { "id": "p9", "fa": "نابرده رنج گنج میسر نمی‌شود", "fg": "nabordeh ranj ganj moyassar nemishavad" },
+    { "id": "p10", "fa": "عقل سالم در بدن سالم است", "fg": "aghle salem dar badane salem ast" }
+  ],
+  "syllables": {
+    "note": "برای حالت تولید انتزاعی (abstract) – ساخت واژه‌های شبه‌فارسی",
+    "onsets": ["b", "p", "t", "j", "ch", "kh", "d", "r", "z", "s", "sh", "gh", "f", "k", "g", "l", "m", "n", "h", "v", "g", "n", "d", "s"],
+    "nuclei": ["a", "e", "o", "u", "i", "a", "e", "o", "aa", "oo"],
+    "codas": ["", "", "n", "r", "m", "l", "sh", "kh", "st", "rd", "", "n", "r"]
+  }
+}
