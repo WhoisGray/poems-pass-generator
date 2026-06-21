@@ -5,7 +5,7 @@
 ### تولید گذرواژه‌ی امن و به‌یادماندنی از دل **شعر و ضرب‌المثل فارسی**
 ##### یک جایگزین شاعرانه برای `pwgen` — هم **CLI** هم **اکستنشن مرورگر**
 
-[![CI](https://github.com/graygroup/poems-pass-generator/actions/workflows/ci.yml/badge.svg)](https://github.com/graygroup/poems-pass-generator/actions/workflows/ci.yml)
+[![CI](https://github.com/WhoisGray/poems-pass-generator/actions/workflows/ci.yml/badge.svg)](https://github.com/WhoisGray/poems-pass-generator/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg)](https://nodejs.org)
 [![Zero Dependencies](https://img.shields.io/badge/dependencies-0-blue.svg)](package.json)
@@ -63,13 +63,14 @@ gofta-ghame-to-daram-72#
 ### 🖥️ نصب CLI
 
 ```bash
-git clone https://github.com/graygroup/poems-pass-generator.git
+git clone https://github.com/WhoisGray/poems-pass-generator.git
 cd poems-pass-generator
-npm link            # دستور poems-pass را در کل سیستم فعال می‌کند
+npm link            # دستور ppg را در کل سیستم فعال می‌کند
 
-poems-pass          # 🎉 اولین گذرواژه‌ات
+ppg                 # 🎉 اولین گذرواژه‌ات
 ```
 
+> دستور کوتاه **`ppg`** است (نام کامل: `poems-pass` — هر دو کار می‌کنند).
 > نیازی به `npm install` نیست چون پروژه **هیچ وابستگی‌ای ندارد**. فقط Node.js نسخه ۱۸ به بالا لازم است.
 > برای اجرای بدون نصب: `node bin/poems-pass.js`
 
@@ -93,13 +94,13 @@ npm run build:ext   # هسته را داخل extension/ آماده می‌کند
 ## 📖 استفاده‌ی CLI
 
 ```bash
-poems-pass                                  # یک گذرواژه از شعری تصادفی
-poems-pass -n 5 -w 4 -v                      # ۵ گذرواژه، هرکدام ۴ واژه، با جزئیات
-poems-pass --poet حافظ                       # فقط از اشعار حافظ
-poems-pass -m proverb --no-symbols           # از ضرب‌المثل، بدون نماد
-poems-pass -m abstract -w 3 -C -L            # واژه‌های انتزاعی + حرف بزرگ + leet
-poems-pass --poets                           # فهرست شاعران
-poems-pass --stats                           # آمار دیتابیس
+ppg                                  # یک گذرواژه از شعری تصادفی
+ppg -n 5 -w 4 -v                      # ۵ گذرواژه، هرکدام ۴ واژه، با جزئیات
+ppg --poet حافظ                       # فقط از اشعار حافظ
+ppg -m proverb --no-symbols           # از ضرب‌المثل، بدون نماد
+ppg -m abstract -w 3 -C -L            # واژه‌های انتزاعی + حرف بزرگ + leet
+ppg --poets                           # فهرست شاعران
+ppg --stats                           # آمار دیتابیس
 ```
 
 ### گزینه‌ها
@@ -161,6 +162,6 @@ poems-pass-generator/
 
 ## 📜 مجوز
 
-[MIT](LICENSE) © graygroup
+[MIT](LICENSE) © WhoisGray
 
 </div>

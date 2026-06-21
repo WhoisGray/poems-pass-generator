@@ -5,10 +5,10 @@ import { generateMany } from '../core/generator.js';
 import { poets, stats } from '../core/database.js';
 
 const HELP = `
-poems-pass — تولید گذرواژه از شعر و ضرب‌المثل فارسی
+ppg — Poems Pass Generator | تولید گذرواژه از شعر و ضرب‌المثل فارسی
 
 استفاده:
-  poems-pass [گزینه‌ها]
+  ppg [گزینه‌ها]            (نام کامل: poems-pass)
 
 گزینه‌ها:
   -n, --count <عدد>       تعداد گذرواژه‌ها (پیش‌فرض ۱)
@@ -27,10 +27,10 @@ poems-pass — تولید گذرواژه از شعر و ضرب‌المثل فا
   -h, --help              این راهنما
 
 نمونه‌ها:
-  poems-pass
-  poems-pass -n 5 -w 4 --poet حافظ -v
-  poems-pass -m abstract -w 3 -C -L
-  poems-pass -m proverb --no-symbols
+  ppg
+  ppg -n 5 -w 4 --poet حافظ -v
+  ppg -m abstract -w 3 -C -L
+  ppg -m proverb --no-symbols
 `;
 
 function parseArgs(argv) {

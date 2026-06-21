@@ -4,6 +4,7 @@
   "description": "🪶 تولید گذرواژه‌ی امن و به‌یادماندنی از شعر و ضرب‌المثل فارسی — CLI + اکستنشن مرورگر، بدون هیچ وابستگی و بدون نیاز به اینترنت.",
   "type": "module",
   "bin": {
+    "ppg": "bin/poems-pass.js",
     "poems-pass": "bin/poems-pass.js"
   },
   "main": "src/core/index.js",
@@ -41,16 +42,16 @@
     "zero-dependency",
     "offline"
   ],
-  "author": "graygroup",
+  "author": "WhoisGray",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/graygroup/poems-pass-generator.git"
+    "url": "git+https://github.com/WhoisGray/poems-pass-generator.git"
   },
   "bugs": {
-    "url": "https://github.com/graygroup/poems-pass-generator/issues"
+    "url": "https://github.com/WhoisGray/poems-pass-generator/issues"
   },
-  "homepage": "https://github.com/graygroup/poems-pass-generator#readme",
+  "homepage": "https://github.com/WhoisGray/poems-pass-generator#readme",
   "engines": {
     "node": ">=18"
   }
