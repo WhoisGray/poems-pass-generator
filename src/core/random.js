@@ -1,20 +1,25 @@
 // منبع تصادفی امن (CSPRNG) با fallback برای محیط‌های مختلف
-// در مرورگر: crypto.getRandomValues ، در Node: webcrypto
+// در مرورگر و Node ۲۰+: globalThis.crypto
+// در Node ۱۸ (که crypto سراسری ندارد): import پویای node:crypto
 
-function getCrypto() {
+function fromGlobal() {
   if (typeof globalThis !== 'undefined' && globalThis.crypto && globalThis.crypto.getRandomValues) {
     return globalThis.crypto;
   }
-  // Node.js قدیمی‌تر
-  try {
-    // eslint-disable-next-line
-    const nodeCrypto = require('crypto');
-    if (nodeCrypto.webcrypto) return nodeCrypto.webcrypto;
-  } catch (e) { /* ignore */ }
-  throw new Error('هیچ منبع تصادفی امنی در دسترس نیست (CSPRNG).');
+  return null;
 }
 
-const cryptoObj = getCrypto();
+let cryptoObj = fromGlobal();
+if (!cryptoObj) {
+  // فقط در Node اجرا می‌شود؛ مرورگر چون crypto سراسری دارد به اینجا نمی‌رسد.
+  try {
+    const mod = await import('node:crypto');
+    cryptoObj = mod.webcrypto;
+  } catch (e) { /* در دسترس نیست */ }
+}
+if (!cryptoObj || !cryptoObj.getRandomValues) {
+  throw new Error('هیچ منبع تصادفی امنی در دسترس نیست (CSPRNG).');
+}
 
 /** عدد تصادفی امن صحیح در بازه [0, max) بدون بایاس پیمانه‌ای */
 export function randInt(max) {
