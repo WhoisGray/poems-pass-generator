@@ -130,9 +130,10 @@ export function estimateStrength(pw, opts = DEFAULTS) {
   };
 }
 
+// برچسب پایدار (کلید) انگلیسی است؛ هر رابط در صورت نیاز ترجمه می‌کند.
 function rate(bits) {
-  if (bits < 40) return 'ضعیف';
-  if (bits < 60) return 'متوسط';
-  if (bits < 80) return 'قوی';
-  return 'بسیار قوی';
+  if (bits < 40) return 'weak';
+  if (bits < 60) return 'medium';
+  if (bits < 80) return 'strong';
+  return 'very strong';
 }

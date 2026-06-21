@@ -5,30 +5,30 @@ import { generateMany } from '../core/generator.js';
 import { poets, stats } from '../core/database.js';
 
 const HELP = `
-ppg — Poems Pass Generator | تولید گذرواژه از شعر و ضرب‌المثل فارسی
+ppg — Poems Pass Generator | memorable passwords from Persian poetry
 
-استفاده:
-  ppg [گزینه‌ها]            (نام کامل: poems-pass)
+Usage:
+  ppg [options]            (full name: poems-pass)
 
-گزینه‌ها:
-  -n, --count <عدد>       تعداد گذرواژه‌ها (پیش‌فرض ۱)
-  -w, --words <عدد>       تعداد واژه در هر گذرواژه (پیش‌فرض ۳)
-  -m, --mode <حالت>       poem | proverb | abstract (پیش‌فرض poem)
-      --poet <نام>        فیلتر بر اساس شاعر (مثلاً حافظ)
-  -s, --sep <نویسه>       جداکننده‌ی واژه‌ها (پیش‌فرض '-')
-  -C, --capitalize        حرف اول هر واژه بزرگ
-  -L, --leet              جایگزینی leet-speak (a→@, e→3, ...)
-      --no-numbers        بدون عدد
-      --no-symbols        بدون نویسه‌ی خاص
-      --symbols <ست>      مجموعه‌ی نویسه‌های خاص (پیش‌فرض !@#$%^&*?-_+=)
-  -v, --verbose           نمایش منبع شعر و قدرت گذرواژه
-      --poets             فهرست شاعران موجود
-      --stats             آمار پایگاه داده
-  -h, --help              این راهنما
+Options:
+  -n, --count <num>       Number of passwords (default 1)
+  -w, --words <num>       Words per password (default 3)
+  -m, --mode <mode>       poem | proverb | abstract (default poem)
+      --poet <name>       Filter by poet (Persian name, e.g. حافظ)
+  -s, --sep <char>        Word separator (default '-')
+  -C, --capitalize        Capitalize first letter of each word
+  -L, --leet              Apply leet-speak (a->@, e->3, ...)
+      --no-numbers        Do not append digits
+      --no-symbols        Do not append a special character
+      --symbols <set>     Special-character set (default !@#$%^&*?-_+=)
+  -v, --verbose           Show poem source and password strength
+      --poets             List available poets
+      --stats             Show database statistics
+  -h, --help              Show this help
 
-نمونه‌ها:
+Examples:
   ppg
-  ppg -n 5 -w 4 --poet حافظ -v
+  ppg -n 5 -w 4 -v
   ppg -m abstract -w 3 -C -L
   ppg -m proverb --no-symbols
 `;
@@ -58,7 +58,7 @@ function parseArgs(argv) {
       case '--stats': o._action = 'stats'; break;
       case '-h': case '--help': o._action = 'help'; break;
       default:
-        if (a.startsWith('-')) { console.error(`گزینه‌ی ناشناخته: ${a}`); process.exit(1); }
+        if (a.startsWith('-')) { console.error(`Unknown option: ${a}`); process.exit(1); }
     }
   }
   return o;
@@ -71,7 +71,7 @@ export function run(argv = process.argv.slice(2)) {
   if (o._action === 'poets') { console.log(poets().join('\n')); return; }
   if (o._action === 'stats') {
     const s = stats();
-    console.log(`اشعار: ${s.poems}\nضرب‌المثل‌ها: ${s.proverbs}\nشاعران: ${s.poets}\nمجموع واژه‌ها: ${s.totalWords}`);
+    console.log(`Poems: ${s.poems}\nProverbs: ${s.proverbs}\nPoets: ${s.poets}\nTotal words: ${s.totalWords}`);
     return;
   }
 
@@ -79,10 +79,11 @@ export function run(argv = process.argv.slice(2)) {
   for (const r of results) {
     if (o.verbose) {
       const m = r.meta;
-      const src = m.entry ? `${m.entry.poet || 'ضرب‌المثل'} — ${m.entry.fa}` : 'انتزاعی';
+      // Latin transliteration as source so it renders on any terminal.
+      const src = m.entry ? (m.entry.fg + (m.entry.poet ? ` (${m.entry.poet})` : '')) : 'abstract';
       console.log(`${r.password}`);
-      console.log(`  منبع: ${src}`);
-      console.log(`  قدرت: ${m.strength} (~${m.entropyBits} بیت) | طول: ${m.length}`);
+      console.log(`  source: ${src}`);
+      console.log(`  strength: ${m.strength} (~${m.entropyBits} bits) | length: ${m.length}`);
       console.log('');
     } else {
       console.log(r.password);

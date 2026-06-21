@@ -24,9 +24,13 @@ function readOptions() {
   };
 }
 
+// برچسب قدرت از هسته انگلیسی است؛ اینجا برای نمایش به فارسی و رنگ نگاشت می‌شود.
+const STRENGTH_FA = {
+  'weak': 'ضعیف', 'medium': 'متوسط', 'strong': 'قوی', 'very strong': 'بسیار قوی',
+};
 const STRENGTH_COLOR = {
-  'ضعیف': 'var(--bad)', 'متوسط': 'var(--mid)',
-  'قوی': 'var(--good)', 'بسیار قوی': 'var(--good)',
+  'weak': 'var(--bad)', 'medium': 'var(--mid)',
+  'strong': 'var(--good)', 'very strong': 'var(--good)',
 };
 
 function render() {
@@ -39,7 +43,8 @@ function render() {
   $('bar').style.background = STRENGTH_COLOR[m.strength] || 'var(--mid)';
 
   const src = m.entry ? (m.entry.poet ? `${m.entry.poet}: ${m.entry.fa}` : m.entry.fa) : 'واژه‌های انتزاعی';
-  $('meta').textContent = `${m.strength} · ~${m.entropyBits} بیت · ${src}`;
+  const strengthFa = STRENGTH_FA[m.strength] || m.strength;
+  $('meta').textContent = `${strengthFa} · ~${m.entropyBits} بیت · ${src}`;
 }
 
 // نمایش/مخفی‌سازی فیلتر شاعر بسته به حالت
